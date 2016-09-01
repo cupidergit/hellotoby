@@ -1,7 +1,6 @@
 import * as gulp from 'gulp';
 import {execSync, spawn, spawnSync} from 'child_process';
 
-
 let projectNames = [
     'apple',
     'pear',
@@ -37,11 +36,14 @@ let projectNames = [
 
 let accounts: Array<account> = [
     {
-        userName: 'adam3413',
+        userName: 'eve3777',
+        password: 'Woaibaobao1107',
+    },
+    {
+        userName: 'adolph8015',
         password: 'Woaibaobao1107',
     }
 ];
-
 
 gulp.task('commit', () => {
     spawnSync('git', ['add', '*.html'], { stdio: 'inherit' });
@@ -49,21 +51,23 @@ gulp.task('commit', () => {
 });
 
 gulp.task('default', () => {
-    execSync('powershell.exe unblock-file .\\credman.ps1', { stdio: 'inherit' });
+    execSync('powershell.exe unblock-file .\\credman.ps1', { stdio: 'inherit', encoding: 'utf8' });
 
     for (let account of accounts) {
-        execSync(`powershell.exe .\\credman.ps1 -AddCred -Target "git:https://git.coding.net" -User "${account.userName}" -Pass "${account.password}"`, { stdio: 'inherit' });
+        let credResult = spawnSync('powershell.exe', ['.\\credman.ps1', '-AddCred', '-Target', '"git:https://git.coding.net"', '-User', `"${account.userName}"`, '-Pass', `"${account.password}"`], { stdio: 'ignore', encoding: 'utf8' });
+        if (credResult.status != 0) {
+            console.log('set credential fail: ', account);
+        }
         for (let project of projectNames) {
             let gitUrl = `https://git.coding.net/${account.userName}/${project}.git`;
             let remoteName = `${account.userName}-${project}`;
             spawnSync('git', ['remote', 'add', remoteName, gitUrl], { stdio: 'ignore' });
-            spawn('git', ['push', remoteName, 'coding-pages'], { stdio: 'ignore' }).on('exit', (code, signal) => {
-                if (code == 0) {
-                    console.log(`${account.userName}.coding.me/${project}`)
-                } else {
-                    console.log(`push fail for ${remoteName}`);
-                }
-            });
+            let result = spawnSync('git', ['push', remoteName, 'coding-pages', '-f'], { stdio: 'ignore', encoding: 'utf8' });
+            if (result.status == 0) {
+                console.log(`${account.userName}.coding.me/${project}`);
+            } else {
+                console.log(`push fail for ${remoteName}`);
+            }
         }
     }
 });

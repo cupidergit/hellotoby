@@ -35,27 +35,44 @@ let projectNames = [
 ];
 let accounts = [
     {
-        userName: 'm13058823413@163.com',
+        userName: 'eve3777',
         password: 'Woaibaobao1107',
-        codeName: 'adam3413'
+    },
+    {
+        userName: 'adolph8015',
+        password: 'Woaibaobao1107',
     }
 ];
+gulp.task('commit', () => {
+    child_process_1.spawnSync('git', ['add', '*.html'], { stdio: 'inherit' });
+    child_process_1.spawnSync('git', ['commit', '-m', `"commit-${(new Date()).toLocaleString()}"`], { stdio: 'inherit' });
+});
 gulp.task('default', () => {
-    child_process_1.execSync('powershell.exe unblock-file .\\credman.ps1', { stdio: 'inherit' });
+    child_process_1.execSync('powershell.exe unblock-file .\\credman.ps1', { stdio: 'inherit', encoding: 'utf8' });
     for (let account of accounts) {
-        child_process_1.execSync(`powershell.exe .\\credman.ps1 -AddCred -Target "git:https://git.coding.net" -User "${account.codeName}" -Pass "${account.password}"`, { stdio: 'inherit' });
+        let credResult = child_process_1.spawnSync('powershell.exe', ['.\\credman.ps1', '-AddCred', '-Target', '"git:https://git.coding.net"', '-User', `"${account.userName}"`, '-Pass', `"${account.password}"`], { stdio: 'ignore', encoding: 'utf8' });
+        console.log(credResult);
+        if (credResult.status != 0) {
+            console.log('set credential fail: ', account);
+        }
         for (let project of projectNames) {
-            let gitUrl = `https://git.coding.net/${account.codeName}/${project}.git`;
-            let remoteName = `${account.codeName}-${project}`;
+            let gitUrl = `https://git.coding.net/${account.userName}/${project}.git`;
+            let remoteName = `${account.userName}-${project}`;
             child_process_1.spawnSync('git', ['remote', 'add', remoteName, gitUrl], { stdio: 'ignore' });
-            child_process_1.spawn('git', ['push', remoteName, 'coding-pages'], { stdio: 'ignore' }).on('exit', (code, signal) => {
-                if (code == 0) {
-                    console.log(`${account.codeName}.coding.me/${project}`);
-                }
-                else {
-                    console.log(`push fail for ${remoteName}`);
-                }
-            });
+            // spawn('git', ['push', remoteName, 'coding-pages'], { stdio: 'ignore' }).on('exit', (code, signal) => {
+            //     if (code == 0) {
+            // console.log(`${account.userName}.coding.me/${project}`);
+            //     } else {
+            //         console.log(`push fail for ${remoteName}`);
+            //     }
+            // });
+            let result = child_process_1.spawnSync('git', ['push', remoteName, 'coding-pages', '-f'], { stdio: 'ignore', encoding: 'utf8' });
+            if (result.status == 0) {
+                console.log(`${account.userName}.coding.me/${project}`);
+            }
+            else {
+                console.log(`push fail for ${remoteName}`);
+            }
         }
     }
 });

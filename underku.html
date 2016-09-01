@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link href="http://dcfa.wela.ren/common-ad/css/style.css" rel="stylesheet">
+    <link href="http://dcfa.wela.ren/common-ad/css/uw.css" rel="stylesheet">
+    <script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+    <script src="http://dcfa.wela.ren/common-ad/scripts/ad-list.js"></script>
+    <script src="http://dcfa.wela.ren/common-ad/scripts/index.js"></script>
+    <script src="http://dcfa.wela.ren/common-ad/scripts/uw.js"></script>
+</head>
+
+<body>
+    <nav>
+        <div id="date"></div>
+        <div id="up-name"></div>
+        <div id="complain">投诉</div>
+    </nav>
+    <article id="content"></article>
+    <main id="order">
+        <div>
+            <img src="http://celi-image.oss-cn-beijing.aliyuncs.com/wk/wk_bottom_01.gif">
+        </div>
+        <div id="order-info">
+            <div id="sku-list">
+                <div id="594-yuan" sku-id="5" price="594">
+                    英国卫裤买三送二 594元
+                </div>
+                <div id="396-yuan" sku-id="3" price="396">
+                    英国卫裤买二送一 396元 <span style="color:red;">（推荐）</span>
+                </div>
+                <div id="198-yuan" sku-id="1" price="198">
+                    英国卫裤一条 198元
+                </div>
+            </div>
+            <div id="sku-info">
+                <div>颜色：黑色</div>
+                <div>
+                    尺码：
+                    <select id="spec">
+                        <option selected value="0">请选择</option>
+                        <option value="27">L-腰围(尺)2.0-2.2 </option>
+                        <option value="28">XL-腰围(尺)2.3-2.5 </option>
+                        <option value="29">XXL-腰围(尺)2.6-2.8 </option>
+                        <option value="30">XXXL-腰围(尺)2.9-3.1 </option>
+                    </select>
+                </div>
+                <div>
+                    快递：
+                    <select id="shipping">
+                        <option selected value="0">请选择</option>
+                        <option value="2">圆通快递</option>
+                        <option value="3">顺丰快递</option>                        
+                    </select>
+                </div>
+                <div>
+                    价格：<span id="sku-price"></span>
+                </div>
+                <div>
+                    <input type="radio" checked>货到付款并包邮
+                </div>
+            </div>
+        </div>
+        <div id="user-info">
+            <div>
+                收货人　：<input type="text" id="name">
+            </div>
+            <div>
+                联系手机：<input type="text" id="tel">
+            </div>
+            <div>
+                选择地区：
+                <span>
+                    <select id="province">
+                        <option value="0" selected="">省份</option>
+                        <option value="1">北京市</option>
+                        <option value="2">天津市</option>
+                        <option value="3">河北省</option>
+                        <option value="4">山西省</option>
+                        <option value="5">内蒙古自治区</option>
+                        <option value="6">辽宁省</option>
+                        <option value="7">吉林省</option>
+                        <option value="8">黑龙江省</option>
+                        <option value="9">上海市</option>
+                        <option value="10">江苏省</option>
+                        <option value="11">浙江省</option>
+                        <option value="12">安徽省</option>
+                        <option value="13">福建省</option>
+                        <option value="14">江西省</option>
+                        <option value="15">山东省</option>
+                        <option value="16">河南省</option>
+                        <option value="17">湖北省</option>
+                        <option value="18">湖南省</option>
+                        <option value="19">广东省</option>
+                        <option value="20">广西壮族自治区</option>
+                        <option value="21">海南省</option>
+                        <option value="22">重庆市</option>
+                        <option value="23">四川省</option>
+                        <option value="24">贵州省</option>
+                        <option value="25">云南省</option>
+                        <option value="26">西藏自治区</option>
+                        <option value="27">陕西省</option>
+                        <option value="28">甘肃省</option>
+                        <option value="29">青海省</option>
+                        <option value="30">宁夏回族自治区</option>
+                        <option value="31">新疆维吾尔自治区</option>
+                        <option value="36">其他</option>
+                    </select>
+                    <select id="city">
+                        <option value="0" selected>市</option>
+                    </select>
+                    <select id="district">
+                        <option value="0" selected>区/县</option>
+                    </select>
+                </span>
+            </div>
+            <div>
+                详细地址：<input type="text" id="address">
+            </div>
+            <div>
+                <img src="http://celi-image.oss-cn-beijing.aliyuncs.com/wk/wk_bottom_02.jpeg">
+            </div>
+        </div>
+        <div>
+            <button id="submit">提交订单</button>
+        </div>
+    </main>
+    <div>
+        温馨提示：订单提交后会有工作人员与您联系！请保持电话畅通！谢谢您的购买！祝您生活愉快！
+    </div>
+    <div>
+        <img src="http://celi-image.oss-cn-beijing.aliyuncs.com/wk/wk_bottom_03.jpeg">
+    </div>
+    <footer>
+        <a href="#order" id="buy-now">立即购买</a>
+    </footer>
+    <div id="alert-mask"></div>
+    <div style="display:none;">
+        <script src="http://s11.cnzz.com/z_stat.php?id=1260201561&web_id=1260201561" language="JavaScript"></script>
+    </div>
+</body>
+
+</html>

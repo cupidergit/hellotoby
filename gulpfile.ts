@@ -74,7 +74,7 @@ gulp.task('default', () => {
             spawnSync('git', ['remote', 'add', remoteName, gitUrl], { stdio: 'ignore' });
             let result = spawnSync('git', ['push', remoteName, 'coding-pages'], { stdio: 'ignore', encoding: 'utf8' });
             if (result.status == 0) {
-                console.log(`${account.userName}.coding.me/${project}`)
+                console.log(`${account.userName}.coding.me/${project}`);
             } else {
                 console.log(`push fail for ${remoteName}`);
             }

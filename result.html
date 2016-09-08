@@ -8,14 +8,14 @@
     <meta name="format-detection" content="telephone=no">
     <link href="http://dcfa.wela.ren/gs/css/result.css" rel="stylesheet">
     <script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
-    <script src="http://dcfa.wela.ren/common-ad/scripts/ad-list.js"></script>
+    <script src="http://dcfa.wela.ren/gs/scripts/ad-list.js"></script>
     <script src="http://dcfa.wela.ren/common-ad/scripts/index.js"></script>
 </head>
 
 <body>
     <div class="title"></div>
     <div class="ewm">
-        <img src="http://group1107.oss-cn-shanghai.aliyuncs.com/qr-code.jpg">
+        <img id="qr-code" src="http://group1107.oss-cn-shanghai.aliyuncs.com/qr-code.jpg">
     </div>
     <div class="ewm_text">
         <img src="http://group1107.oss-cn-shanghai.aliyuncs.com/ewm_text.png">
@@ -90,6 +90,11 @@
         </div>
     </div>
     <div class="more" onclick="if(confirm(&#39;请加微信号 查看更多照片&#39;)){document.body.scrollTop=0;}else{document.body.scrollTop=0;}">查看更多</div>
+    <script>
+        var t = getUrlParam("city", location.search);
+        t = decodeURI(t);
+        window.cityQrCodes && cityQrCodes[t] && $("#qr-code").attr("src", cityQrCodes[t]);
+    </script>
 </body>
 
 </html>

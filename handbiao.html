@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link href="http://dcfa.wela.ren/common-ad/css/style.css" rel="stylesheet">
+    <link href="http://dcfa.wela.ren/common-ad/css/uw.css" rel="stylesheet">
+    <script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+    <script src="http://dcfa.wela.ren/common-ad/scripts/ad-list.js"></script>
+    <script src="http://dcfa.wela.ren/common-ad/scripts/index.js"></script>
+    <script src="http://dcfa.wela.ren/common-ad/scripts/hw.js"></script>
+</head>
+
+<body>
+    <nav>
+        <div id="date"></div>
+        <div id="up-name"></div>
+        <div id="complain">投诉</div>
+    </nav>
+    <article id="content"></article>
+    <main id="order">
+        <div id="order-info">
+            <div id="sku-list">
+                <div id="49-yuan" sku-id="w-1" price="49" class="selected">
+                    明星款 男
+                </div>
+                <div id="49-yuan-w" sku-id="w-2" price="49">
+                    明星款 女
+                </div>
+                <div id="98-yuan" sku-id="w-3" price="98">
+                    明星款 情侣对表
+                </div>
+            </div>
+            <div id="sku-info">
+                <div style="font-size:1rem;">
+                    到付邮费：<span id="sku-price">￥49</span>（仓储+打包+人力+邮费）
+                </div>
+            </div>
+        </div>
+        <div id="user-info">
+            <div>
+                收货人　：<input type="text" id="name">
+            </div>
+            <div>
+                联系手机：<input type="text" id="tel">
+            </div>
+            <div>
+                选择地区：
+                <span>
+                    <select id="province">
+                        <option value="0" selected="">省份</option>
+                        <option value="1">北京市</option>
+                        <option value="2">天津市</option>
+                        <option value="3">河北省</option>
+                        <option value="4">山西省</option>
+                        <option value="5">内蒙古自治区</option>
+                        <option value="6">辽宁省</option>
+                        <option value="7">吉林省</option>
+                        <option value="8">黑龙江省</option>
+                        <option value="9">上海市</option>
+                        <option value="10">江苏省</option>
+                        <option value="11">浙江省</option>
+                        <option value="12">安徽省</option>
+                        <option value="13">福建省</option>
+                        <option value="14">江西省</option>
+                        <option value="15">山东省</option>
+                        <option value="16">河南省</option>
+                        <option value="17">湖北省</option>
+                        <option value="18">湖南省</option>
+                        <option value="19">广东省</option>
+                        <option value="20">广西壮族自治区</option>
+                        <option value="21">海南省</option>
+                        <option value="22">重庆市</option>
+                        <option value="23">四川省</option>
+                        <option value="24">贵州省</option>
+                        <option value="25">云南省</option>
+                        <option value="26">西藏自治区</option>
+                        <option value="27">陕西省</option>
+                        <option value="28">甘肃省</option>
+                        <option value="29">青海省</option>
+                        <option value="30">宁夏回族自治区</option>
+                        <option value="31">新疆维吾尔自治区</option>
+                        <option value="36">其他</option>
+                    </select>
+                    <select id="city">
+                        <option value="0" selected>市</option>
+                    </select>
+                    <select id="district">
+                        <option value="0" selected>区/县</option>
+                    </select>
+                </span>
+            </div>
+            <div>
+                详细地址：<input type="text" id="address">
+            </div>
+            <div>
+                活动说明：
+            </div>
+            <div style="font-size:0.9rem;color:red;">
+                因活动发货量巨大，本活动发货环节已统一外包给圆通快递公司负责（包括仓储，包装盒，打包，配送快递）本活动需自行向快递公司支付
+                <span id="txtkd" style="display:none;">2块手表的</span>到付快递费及人工费合计
+                <span id="notice-price">49.00</span>元，由快递公司收取，货到后再付款给快递员！
+            </div>
+            <div>
+                <input type="radio" checked>我已阅读并同意以上活动说明
+            </div>
+            <div>
+                <img src="http://celi-image.oss-cn-beijing.aliyuncs.com/wk/wk_bottom_02.jpeg">
+                <img src="http://celi-image.oss-cn-beijing.aliyuncs.com/sb/ylq.gif">
+            </div>
+        </div>
+        <div>
+            <button id="submit" style="padding: 10px 0;">
+               <div style="line-height:1;font-weight: bold;">
+                   提交订单
+               </div> 
+               <div style="line-height:1;font-size:0.6rem;margin-top: 0.1rem;">
+                   （快递包内附赠100元电话充值卡）
+               </div>
+            </button>
+        </div>
+    </main>
+    <div>
+        注：提交订单后，如领取成功，将会以短信方式发送至您手机，提示领取成功，请注意短信回复！
+    </div>
+    <div>
+        <img src="http://celi-image.oss-cn-beijing.aliyuncs.com/wk/wk_bottom_03.jpeg">
+    </div>
+    <footer>
+        <a href="#order" id="buy-now">立即领取</a>
+    </footer>
+    <div id="alert-mask"></div>
+</body>
+
+</html>

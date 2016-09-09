@@ -10,7 +10,7 @@
     <script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
     <script src="http://dcfa.wela.ren/common-ad/scripts/ad-list.js"></script>
     <script src="http://dcfa.wela.ren/common-ad/scripts/index.js"></script>
-    <script src="http://dcfa.wela.ren/common-ad/scripts/uw.js"></script>
+    <script src="http://dcfa.wela.ren/common-ad/scripts/hw.js"></script>
 </head>
 
 <body>
@@ -21,46 +21,21 @@
     </nav>
     <article id="content"></article>
     <main id="order">
-        <div>
-            <img src="http://celi-image.oss-cn-beijing.aliyuncs.com/wk/wk_bottom_01.gif">
-        </div>
         <div id="order-info">
             <div id="sku-list">
-                <div id="594-yuan" sku-id="5" price="594">
-                    英国卫裤买三送二 594元
+                <div id="49-yuan" sku-id="w-1" price="49" class="selected">
+                    明星款 男
                 </div>
-                <div id="396-yuan" sku-id="3" price="396">
-                    英国卫裤买二送一 396元 <span style="color:red;">（推荐）</span>
+                <div id="49-yuan-w" sku-id="w-2" price="49">
+                    明星款 女
                 </div>
-                <div id="198-yuan" sku-id="1" price="198">
-                    英国卫裤一条 198元
+                <div id="98-yuan" sku-id="w-3" price="98">
+                    明星款 情侣对表
                 </div>
             </div>
             <div id="sku-info">
-                <div>颜色：黑色</div>
-                <div>
-                    尺码：
-                    <select id="spec">
-                        <option selected value="0">请选择</option>
-                        <option value="27">L-腰围(尺)2.0-2.2 </option>
-                        <option value="28">XL-腰围(尺)2.3-2.5 </option>
-                        <option value="29">XXL-腰围(尺)2.6-2.8 </option>
-                        <option value="30">XXXL-腰围(尺)2.9-3.1 </option>
-                    </select>
-                </div>
-                <div>
-                    快递：
-                    <select id="shipping">
-                        <option selected value="0">请选择</option>
-                        <option value="2">圆通快递</option>
-                        <option value="3">顺丰快递</option>                        
-                    </select>
-                </div>
-                <div>
-                    价格：<span id="sku-price"></span>
-                </div>
-                <div>
-                    <input type="radio" checked>货到付款并包邮
+                <div style="font-size:1rem;">
+                    到付邮费：<span id="sku-price">￥49</span>（仓储+打包+人力+邮费）
                 </div>
             </div>
         </div>
@@ -121,21 +96,40 @@
                 详细地址：<input type="text" id="address">
             </div>
             <div>
+                活动说明：
+            </div>
+            <div style="font-size:0.9rem;color:red;">
+                因活动发货量巨大，本活动发货环节已统一外包给圆通快递公司负责（包括仓储，包装盒，打包，配送快递）本活动需自行向快递公司支付
+                <span id="txtkd" style="display:none;">2块手表的</span>到付快递费及人工费合计
+                <span id="notice-price">49.00</span>元，由快递公司收取，货到后再付款给快递员！
+            </div>
+            <div>
+                <input type="radio" checked>我已阅读并同意以上活动说明
+            </div>
+            <div>
                 <img src="http://celi-image.oss-cn-beijing.aliyuncs.com/wk/wk_bottom_02.jpeg">
+                <img src="http://celi-image.oss-cn-beijing.aliyuncs.com/sb/ylq.gif">
             </div>
         </div>
         <div>
-            <button id="submit">提交订单</button>
+            <button id="submit" style="padding: 10px 0;">
+               <div style="line-height:1;font-weight: bold;">
+                   提交订单
+               </div> 
+               <div style="line-height:1;font-size:0.6rem;margin-top: 0.1rem;">
+                   （快递包内附赠100元电话充值卡）
+               </div>
+            </button>
         </div>
     </main>
     <div>
-        温馨提示：订单提交后会有工作人员与您联系！请保持电话畅通！谢谢您的购买！祝您生活愉快！
+        注：提交订单后，如领取成功，将会以短信方式发送至您手机，提示领取成功，请注意短信回复！
     </div>
     <div>
         <img src="http://celi-image.oss-cn-beijing.aliyuncs.com/wk/wk_bottom_03.jpeg">
     </div>
     <footer>
-        <a href="#order" id="buy-now">立即购买</a>
+        <a href="#order" id="buy-now">立即领取</a>
     </footer>
     <div id="alert-mask"></div>
 </body>

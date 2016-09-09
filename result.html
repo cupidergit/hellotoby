@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>微信扫码</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <link href="http://dcfa.wela.ren/gs/css/result.css" rel="stylesheet">
+    <script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+    <script src="http://dcfa.wela.ren/gs/scripts/ad-list.js"></script>
+    <script src="http://dcfa.wela.ren/common-ad/scripts/index.js"></script>
+</head>
+
+<body>
+    <div class="title"></div>
+    <div class="ewm">
+        <img id="qr-code" src="http://group1107.oss-cn-shanghai.aliyuncs.com/qr-code.jpg">
+    </div>
+    <div class="ewm_text">
+        <img src="http://group1107.oss-cn-shanghai.aliyuncs.com/ewm_text.png">
+    </div>
+    <div class="add_wx">
+        <div class="add_text">
+            请长按 [ <span>扫描二维码</span> ] 添加好友
+        </div>
+    </div>
+    <div class="wx_top">
+        <div class="wx_con">
+            <div class="text">
+            </div>
+        </div>
+        <div class="pyq_nr">
+            <dl>
+                <dt>今天</dt>
+                <dd class="pic"><img src="http://group1107.oss-cn-shanghai.aliyuncs.com/pyq.jpg"></dd>
+                <dd class="wz">
+                    <p class="p01">鞋子买了好几个月终于有衣服配了。还蛮好看的。看了心情好好啊啊</p>
+                    <p class="total">共2张</p>
+                </dd>
+            </dl>
+            <dl>
+                <dt></dt>
+                <dd class="pic"><img src="http://group1107.oss-cn-shanghai.aliyuncs.com/03.jpg"></dd>
+                <dd class="wz">
+                    <p class="p01">陪麻麻看会电视 她是湖南台的忠实粉丝哦</p>
+                    <p class="total">共1张</p>
+                </dd>
+            </dl>
+            <dl>
+                <dt>昨天</dt>
+                <dd class="pic"><img src="http://group1107.oss-cn-shanghai.aliyuncs.com/02.jpg"></dd>
+                <dd class="wz">
+                    <p class="p01">听说今年流行这样吃西瓜</p>
+                    <p class="total">共1张</p>
+                </dd>
+            </dl>
+            <dl>
+                <dt></dt>
+                <dd class="pic"><img src="http://group1107.oss-cn-shanghai.aliyuncs.com/06.jpg"></dd>
+                <dd class="wz">
+                    <p class="p01">颜色太单调了 得添点颜色，美美哒</p>
+                    <p class="total">共2张</p>
+                </dd>
+            </dl>
+            <dl>
+                <dt></dt>
+                <dd class="pic"><img src="http://group1107.oss-cn-shanghai.aliyuncs.com/08.jpg"></dd>
+                <dd class="wz">
+                    <p class="p01"></p>
+                    <p class="total">共2张</p>
+                </dd>
+            </dl>
+            <dl>
+                <dt></dt>
+                <dd class="pic"><img src="http://group1107.oss-cn-shanghai.aliyuncs.com/05.jpg"></dd>
+                <dd class="wz">
+                    <p class="p01">陪麻麻一起去shopping</p>
+                    <p class="total">共1张</p>
+                </dd>
+            </dl>
+            <dl>
+                <dt></dt>
+                <dd class="pic"><img src="http://group1107.oss-cn-shanghai.aliyuncs.com/07.jpg"></dd>
+                <dd class="wz">
+                    <p class="p01">爷爷 爷爷 爷爷......有点辣眼睛</p>
+                    <p class="total">共1张</p>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <div class="more" onclick="if(confirm(&#39;请加微信号 查看更多照片&#39;)){document.body.scrollTop=0;}else{document.body.scrollTop=0;}">查看更多</div>
+    <script>
+        var t = getUrlParam("city", location.search);
+        t = decodeURI(t);
+        window.cityQrCodes && cityQrCodes[t] && $("#qr-code").attr("src", cityQrCodes[t]);
+    </script>
+</body>
+
+</html>
